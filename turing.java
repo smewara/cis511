@@ -2,15 +2,20 @@ import java.lang.*;
 
 class turing
 {
-	int[] states= new int[10];
-	char[] sigma=new char[2];
-	String q0;
-
+	int states;
+	String input;
+	int q0;
 	public turing()
 	{
-		sigma[0]=' ';
-		sigma[1]=' ';
-		q0="";
+		input="";
+		states=0;
+		q0=0;
+	}
+
+	public static void main(String args[])
+	{
+		transistion t = new transistion(2,'a',3,'L','b');
+		t.print();
 	}
 }
 	
