@@ -5,18 +5,25 @@ class turing
 	int states;
 	String input;
 	int q0;
+
 	public turing()
-	{
+	{                  
 		input="";
 		states=0;
 		q0=0;
 	}
-
-	public static void main(String args[])
+	
+	public turing(int s, String input, int startstate)
 	{
-		transistion t = new transistion(2,'a',3,'L','b');
-		t.print();
+		this.states = s;
+		this.input = input;
+		this.q0 = startstate;
 	}
+
+	public void print()
+	{
+		System.out.println("The Turing Machine is : (" +states+","+input+","+q0+")");
+	} 
 }
 	
 	

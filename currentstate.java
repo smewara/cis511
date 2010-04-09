@@ -4,26 +4,40 @@ class currentstate
 	char symbol;
 	int position;
 	
-	public currentstate()
+	public currentstate(int s, char sym, int pos)
 	{
-		state=0;
-		symbol=' ';
-		position=0;
+		state=s;
+		symbol=sym;
+		position=pos;
 	}
 	
-	int getstate()
+	public int getstate()
 	{
 		return state;
 	}
 
-	char getsymbol()
+	public char getsymbol()
 	{
 		return symbol;
 	}
 
-	int getposition()
+	public int getposition()
 	{
 		return position;
 	}
+	
+	public void setstate(int s)
+	{
+		state = s;
+	}
 
+	public void setsym(char a)
+	{
+		symbol = a;
+	}
+
+	public void setposition(int j)
+	{
+		position = j;
+	}
 }

@@ -14,6 +14,31 @@ class transistion
 		this.LorR = m;
 		this.newinput = b;
 	}
+	
+	public int getstate1()
+	{
+		return state1;
+	}
+
+	public char getinput()
+	{
+		return input;
+	}
+
+	public char getm()
+	{
+		return LorR;
+	}
+
+	public int getstate2()
+	{
+		return state2;
+	}
+	
+	public char getinput2()
+	{
+		return newinput;
+	}
 
 	public void print()
 	{
