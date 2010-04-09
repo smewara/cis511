@@ -51,7 +51,7 @@ class main
 		
 		state = c.getstate();
                 sym = c.getsymbol();
-                
+                pos = c.getposition();
                 c.print();
 
                 	for(i=0; i<num; i++)

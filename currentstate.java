@@ -45,6 +45,6 @@ class currentstate
 
 	public void print()
 	{
-		System.out.println(symbol + "state :" +state + "position :" +position);
+		System.out.println(symbol + "  state :" +state + "  position :" +position);
 	}
 }
