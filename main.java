@@ -11,10 +11,11 @@ class main
 	int state=0;
 	String input="";
 	char sym=' ';
-	int pos=0;
+	int pos=1;
 	int j=0;
 	int k=0;
 	int num=0;
+	int flag;
 		currentstate c = new currentstate(1,args[0],pos);
 
 		System.out.println("");
@@ -53,11 +54,12 @@ class main
                 sym = c.getsymbol();
                 pos = c.getposition();
                 c.print();
-
+		flag=0;
                 	for(i=0; i<num; i++)
                 	{
                         	if(state==t[i].getstate1() && sym==t[i].getinput())
                         	{
+					flag = 1;
                                 	c.setstate(t[i].getstate2());
                                 	c.setsym(t[i].getinput2());
 			
@@ -71,7 +73,9 @@ class main
 					}
 				}
 			}
-		}while(sym!='B');
+
+			
+		}while(flag!=0);
 		
          	}catch(FileNotFoundException e){e.printStackTrace();}
 		
