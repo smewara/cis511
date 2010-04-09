@@ -16,9 +16,9 @@ class currentstate
 		return state;
 	}
 
-	public String getsymbol()
+	public char getsymbol()
 	{
-		return symbol;
+		return symbol.charAt(position);
 	}
 
 	public int getposition()
@@ -31,13 +31,20 @@ class currentstate
 		state = s;
 	}
 
-	public void setsym(String a)
+	public void setsym(char a)
 	{
-		symbol = a;
+		String s1="";
+		s1 = symbol.substring(0,position) + a + symbol.substring(position+1);
+		symbol = s1;
 	}
 
 	public void setposition(int j)
 	{
 		position = j;
+	}
+
+	public void print()
+	{
+		System.out.println(symbol + "state :" +state + "position :" +position);
 	}
 }

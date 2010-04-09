@@ -50,17 +50,16 @@ class main
 		i=0;
 		
 		state = c.getstate();
-                input = c.getsymbol();
-                pos = c.getposition();
-                sym = input.charAt(pos);
-                System.out.println(c.getsymbol()+" " +c.getposition()+" "+c.getstate());
+                sym = c.getsymbol();
+                
+                c.print();
 
                 	for(i=0; i<num; i++)
                 	{
                         	if(state==t[i].getstate1() && sym==t[i].getinput())
                         	{
                                 	c.setstate(t[i].getstate2());
-                                	c.setsym(replaceCharAt(input, pos,t[i].getinput2()));
+                                	c.setsym(t[i].getinput2());
 			
 					if(t[i].getm()=='L')
 					{
@@ -73,9 +72,9 @@ class main
 				}
 			}
 		}while(sym!='B');
-		System.out.println("Accepted");
 		
          	}catch(FileNotFoundException e){e.printStackTrace();}
+		
 		}
 		public static String replaceCharAt(String s, int p, char c) 
 		{
