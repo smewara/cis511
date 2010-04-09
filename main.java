@@ -1,4 +1,7 @@
 import java.lang.*;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 class main
 {
@@ -10,26 +13,33 @@ class main
 	char sym=' ';
 	int pos=0;
 	int j=0;
-	
+	int k=0;
+	int num=0;
 		currentstate c = new currentstate(1,args[0],pos);
 
 		System.out.println("");
 
 		turing m = new turing(1234,"abB",1);
 		m.print();	
-		
-		transistion[] t = new transistion[9];
-                t[0] = new transistion(1,'B',4,'R','B');
-                t[1] = new transistion(1,'a',2,'R','b');
-                t[2] = new transistion(1,'b',2,'R','a');
-                t[3] = new transistion(2,'a',2,'R','b');
-                t[4] = new transistion(2,'b',2,'R','a');
-                t[5] = new transistion(2,'B',3,'L','B');
-                t[6] = new transistion(3,'a',3,'L','a');
-                t[7] = new transistion(3,'b',3,'L','b');
-                t[8] = new transistion(3,'B',4,'R','B');
 
-                for(j=0; j<9 ;j++) t[j].print();
+		File file = new File("transistion_function.txt"	);
+
+		try{
+		Scanner s = new Scanner(file);
+		num = s.nextInt();
+		System.out.println(num);	
+		transistion[] t = new transistion[num];
+		while(s.hasNextLine())
+		{
+                t[k] = new transistion(s.nextInt(),(s.next()).charAt(0),s.nextInt(),(s.next()).charAt(0),(s.next()).charAt(0));
+               	//t[1] = new transistion(1,'a',2,'R','b');
+               	//t[2] = new transistion(1,'b',2,'R','a');
+               	//t[3] = new transistion(2,'a',2,'R','b');
+               	//t[4] = new transistion(2,'b',2,'R','a');
+               	k++; 
+		}
+		
+                for(j=0; j<num ;j++) t[j].print();
 		
 		int i=0;
 
@@ -43,7 +53,7 @@ class main
                 sym = input.charAt(pos);
                 System.out.println(c.getsymbol()+" " +c.getposition()+" "+c.getstate());
 
-                	for(i=0; i<9; i++)
+                	for(i=0; i<num; i++)
                 	{
                         	if(state==t[i].getstate1() && sym==t[i].getinput())
                         	{
@@ -62,8 +72,9 @@ class main
 			}
 		}while(sym!='B');
 		System.out.println("Accepted");
-		}	
-
+		
+         	}catch(FileNotFoundException e){e.printStackTrace();}
+		}
 		public static String replaceCharAt(String s, int p, char c) 
 		{
  			  return s.substring(0,p) + c + s.substring(p+1);

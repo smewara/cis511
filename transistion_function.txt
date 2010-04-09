@@ -1,0 +1,10 @@
+9
+1 B 4 R B
+1 a 2 R b
+1 b 2 R a
+2 a 2 R b
+2 b 2 R a
+2 B 3 L B
+3 a 3 L a
+3 b 3 L b
+3 B 4 R B
