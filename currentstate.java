@@ -23,6 +23,14 @@ class currentstate
 
 	public void moveLorR(char lor)
 	{
+		if (lor=='L')
+                {
+                        position--;
+                }
+                else {
+	                position++;
+                }
+
 		if(symbol.length() < position+1)
 		{
 			symbol=symbol+'B';
@@ -34,13 +42,6 @@ class currentstate
 			symbol = 'B' + symbol;
 		}
 
-		if (lor=='L')
-		{
-			position--;
-		}
-		else { 
-		position++; 
-		}
 	}
 
 	public void setstate(int s)
