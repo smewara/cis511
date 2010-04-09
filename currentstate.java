@@ -21,26 +21,38 @@ class currentstate
 		return symbol.charAt(position);
 	}
 
-	public int getposition()
+	public void moveLorR(char lor)
 	{
-		return position;
+		if(symbol.length() < position+1)
+		{
+			symbol=symbol+'B';
+		}
+
+		if(position<0)
+		{
+			position=0;
+			symbol = 'B' + symbol;
+		}
+
+		if (lor=='L')
+		{
+			position--;
+		}
+		else { 
+		position++; 
+		}
 	}
-	
+
 	public void setstate(int s)
 	{
 		state = s;
 	}
-
+	
 	public void setsym(char a)
 	{
 		String s1="";
 		s1 = symbol.substring(0,position) + a + symbol.substring(position+1);
 		symbol = s1;
-	}
-
-	public void setposition(int j)
-	{
-		position = j;
 	}
 
 	public void print()

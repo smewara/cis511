@@ -52,7 +52,7 @@ class main
 		
 		state = c.getstate();
                 sym = c.getsymbol();
-                pos = c.getposition();
+              
                 c.print();
 		flag=0;
                 	for(i=0; i<num; i++)
@@ -63,14 +63,7 @@ class main
                                 	c.setstate(t[i].getstate2());
                                 	c.setsym(t[i].getinput2());
 			
-					if(t[i].getm()=='L')
-					{
-						c.setposition(pos-1);
-					}
-					else
-					{
-						c.setposition(pos+1);
-					}
+					c.moveLorR(t[i].getm());
 				}
 			}
 
