@@ -8,10 +8,10 @@ class main
 	int state=0;
 	String input="";
 	char sym=' ';
-	int pos=1;
-
-	int i=0;
-		currentstate c = new currentstate(1,args[0],1);
+	int pos=0;
+	int j=0;
+	
+		currentstate c = new currentstate(1,args[0],pos);
 
 		System.out.println("");
 
@@ -29,17 +29,20 @@ class main
                 t[7] = new transistion(3,'b',3,'L','b');
                 t[8] = new transistion(3,'B',4,'R','B');
 
-                for(i=0; i<9 ;i++) t[i].print();
+                for(j=0; j<9 ;j++) t[j].print();
+		
+		int i=0;
+
+		do
+		{
+		i=0;
 		
 		state = c.getstate();
                 input = c.getsymbol();
-		pos = c.getposition();
-		sym = input.charAt(pos);
-		
-		int j=0;
+                pos = c.getposition();
+                sym = input.charAt(pos);
+                System.out.println(c.getsymbol()+" " +c.getposition()+" "+c.getstate());
 
-		while(sym!='B')
-		{
                 	for(i=0; i<9; i++)
                 	{
                         	if(state==t[i].getstate1() && sym==t[i].getinput())
@@ -57,12 +60,7 @@ class main
 					}
 				}
 			}
-			state = c.getstate();
-			input = c.getsymbol();
-			pos = c.getposition();
-			sym = input.charAt(pos);		
-			System.out.println(c.getsymbol());
-		}
+		}while(sym!='B');
 		System.out.println("Accepted");
 		}	
 
