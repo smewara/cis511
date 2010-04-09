@@ -5,15 +5,13 @@ class main
 	public static void main(String args[])
 	{
 	
-	int firststate=0;
-	char firstsym=' ';
+	int state=0;
+	String input="";
+	char sym=' ';
+	int pos=1;
+
 	int i=0;
-		currentstate[] c = new currentstate[args.length + 1];
-		for(i=0; i<args.length; i++)
-		{
-			c[i] = new currentstate(1,args[i].charAt(0),i+1);
-		}
-		c[i] = new currentstate(1,'B',i+1);
+		currentstate c = new currentstate(1,args[0],1);
 
 		System.out.println("");
 
@@ -33,35 +31,44 @@ class main
 
                 for(i=0; i<9 ;i++) t[i].print();
 		
-		firststate = c[0].getstate();
-                firstsym = c[0].getsymbol();
-
+		state = c.getstate();
+                input = c.getsymbol();
+		pos = c.getposition();
+		sym = input.charAt(pos);
+		
 		int j=0;
 
-		while(firstsym!='B')
+		while(sym!='B')
 		{
                 	for(i=0; i<9; i++)
                 	{
-                        	if(firststate==t[i].getstate1() && firstsym==t[i].getinput())
+                        	if(state==t[i].getstate1() && sym==t[i].getinput())
                         	{
-                                	c[t[i].getstate2()].setstate(t[i].getstate2());
-                                	c[t[i].getstate2()].setsym(t[i].getinput2());
+                                	c.setstate(t[i].getstate2());
+                                	c.setsym(replaceCharAt(input, pos,t[i].getinput2()));
+			
+					if(t[i].getm()=='L')
+					{
+						c.setposition(pos-1);
+					}
+					else
+					{
+						c.setposition(pos+1);
+					}
 				}
 			}
-				if(t[i].getm()=='L')
-				{
-					j=j-1;
-					c[t[i].getstate2()].setposition(j);
-					firststate = c[j].getstate();
-					firstsym = c[j].getsymbol();
-				}
-				else
-				{
-					j=j+1;
-					c[t[i].getstate2()].setposition(j);
-					firststate = c[j].getstate();
-					firstsym = c[j].getsymbol();
-				}
+			state = c.getstate();
+			input = c.getsymbol();
+			pos = c.getposition();
+			sym = input.charAt(pos);		
+			System.out.println(c.getsymbol());
 		}
-	}
+		System.out.println("Accepted");
+		}	
+
+		public static String replaceCharAt(String s, int p, char c) 
+		{
+ 			  return s.substring(0,p) + c + s.substring(p+1);
+		}
+
 }

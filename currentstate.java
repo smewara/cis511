@@ -1,10 +1,10 @@
 class currentstate
 {
 	int state;
-	char symbol;
+	String symbol;
 	int position;
 	
-	public currentstate(int s, char sym, int pos)
+	public currentstate(int s, String sym, int pos)
 	{
 		state=s;
 		symbol=sym;
@@ -16,7 +16,7 @@ class currentstate
 		return state;
 	}
 
-	public char getsymbol()
+	public String getsymbol()
 	{
 		return symbol;
 	}
@@ -31,7 +31,7 @@ class currentstate
 		state = s;
 	}
 
-	public void setsym(char a)
+	public void setsym(String a)
 	{
 		symbol = a;
 	}
