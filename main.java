@@ -29,13 +29,15 @@ class main
 		num = s.nextInt();
 		System.out.println(num);	
 		transistion[] t = new transistion[num];
-		while(s.hasNextLine())
+		while(s.hasNextInt())
 		{
-                t[k] = new transistion(s.nextInt(),(s.next()).charAt(0),s.nextInt(),(s.next()).charAt(0),(s.next()).charAt(0));
-               	//t[1] = new transistion(1,'a',2,'R','b');
-               	//t[2] = new transistion(1,'b',2,'R','a');
-               	//t[3] = new transistion(2,'a',2,'R','b');
-               	//t[4] = new transistion(2,'b',2,'R','a');
+		int var1 = s.nextInt();
+		char var2 = (s.next()).charAt(0);
+		int var3 = s.nextInt();
+		char var4 = (s.next()).charAt(0);
+		char var5 = (s.next()).charAt(0);
+                t[k] = new transistion(var1,var2,var3,var4,var5);
+               	
                	k++; 
 		}
 		
